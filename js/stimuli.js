@@ -1,7 +1,8 @@
 /* NeuroColor Atlas Test - Research Version 2
    Stimuli Module - Manages all task stimuli and data structures
    Scientific Colour Task with CIELCh specifications
-   Face Task Stimuli with Emotions and Colours */
+   Face Task Stimuli with Emotions and Colours
+   Indian Chromatic Memory Task with Pilot Colours */
 
 const Stimuli = {
     // AFT Reference Colors - Autonomous Chromatic Field Test
@@ -54,6 +55,144 @@ const Stimuli = {
         { id: 'fear', name: 'Fear', emoji: '😨' },
         { id: 'disgust', name: 'Disgust', emoji: '🤢' },
         { id: 'neutral', name: 'Neutral', emoji: '😐' }
+    ],
+
+    // Indian Chromatic Memory Task - 10 Pilot Colours
+    // Provisional values - to be measured by spectrophotometer
+    indian_memory_colors: [
+        {
+            id: 'icm_01',
+            trial_number: 1,
+            name: 'Kumkum Red',
+            cultural_significance: 'Ceremonial powder used in Hindu rituals',
+            cielab: { L: 45, a: 65, b: 50 },
+            hex_provisional: '#D01F18',
+            note_provisional: true
+        },
+        {
+            id: 'icm_02',
+            trial_number: 2,
+            name: 'Haldi Yellow',
+            cultural_significance: 'Turmeric - sacred spice used in ceremonies',
+            cielab: { L: 68, a: 18, b: 65 },
+            hex_provisional: '#F4C430',
+            note_provisional: true
+        },
+        {
+            id: 'icm_03',
+            trial_number: 3,
+            name: 'Kesari / Saffron',
+            cultural_significance: 'Saffron threads - precious spice and national colour',
+            cielab: { L: 60, a: 35, b: 55 },
+            hex_provisional: '#FF9900',
+            note_provisional: true
+        },
+        {
+            id: 'icm_04',
+            trial_number: 4,
+            name: 'Marigold Orange',
+            cultural_significance: 'Flower used in festivals and offerings',
+            cielab: { L: 62, a: 45, b: 60 },
+            hex_provisional: '#FFB347',
+            note_provisional: true
+        },
+        {
+            id: 'icm_05',
+            trial_number: 5,
+            name: 'Mehendi Green-Brown',
+            cultural_significance: 'Henna paste applied for celebrations and weddings',
+            cielab: { L: 42, a: -8, b: 20 },
+            hex_provisional: '#6B5344',
+            note_provisional: true
+        },
+        {
+            id: 'icm_06',
+            trial_number: 6,
+            name: 'Indigo / Neel',
+            cultural_significance: 'Traditional dye used in textiles and clothing',
+            cielab: { L: 30, a: 15, b: -40 },
+            hex_provisional: '#4B0082',
+            note_provisional: true
+        },
+        {
+            id: 'icm_07',
+            trial_number: 7,
+            name: 'Peacock Blue-Green',
+            cultural_significance: 'Inspired by sacred peacock bird',
+            cielab: { L: 40, a: -15, b: -30 },
+            hex_provisional: '#00CED1',
+            note_provisional: true
+        },
+        {
+            id: 'icm_08',
+            trial_number: 8,
+            name: 'Chandan Beige',
+            cultural_significance: 'Sandalwood - fragrant wood used in rituals and cosmetics',
+            cielab: { L: 72, a: 12, b: 22 },
+            hex_provisional: '#D4B896',
+            note_provisional: true
+        },
+        {
+            id: 'icm_09',
+            trial_number: 9,
+            name: 'Terracotta / Mitti Brown',
+            cultural_significance: 'Earthen clay - traditional pottery and architecture',
+            cielab: { L: 50, a: 20, b: 25 },
+            hex_provisional: '#A0522D',
+            note_provisional: true
+        },
+        {
+            id: 'icm_10',
+            trial_number: 10,
+            name: 'Jasmine White',
+            cultural_significance: 'Fragrant flowers used in garlands and cosmetics',
+            cielab: { L: 92, a: 2, b: 5 },
+            hex_provisional: '#FFFAF0',
+            note_provisional: true
+        }
+    ],
+
+    // Memory Categories for Indian Chromatic Memory Task
+    memory_categories: [
+        { id: 'family_person', label: 'Family/person' },
+        { id: 'friend_community', label: 'Friend/community' },
+        { id: 'home', label: 'Home' },
+        { id: 'village_town', label: 'Village/town' },
+        { id: 'temple_religious', label: 'Temple/religious place' },
+        { id: 'hospital_clinic', label: 'Hospital/clinic' },
+        { id: 'school_workplace', label: 'School/workplace' },
+        { id: 'festival', label: 'Festival' },
+        { id: 'marriage_ceremony', label: 'Marriage/family ceremony' },
+        { id: 'religious_ritual', label: 'Religious ritual' },
+        { id: 'childhood_event', label: 'Childhood event' },
+        { id: 'clothing_textile', label: 'Clothing/textile' },
+        { id: 'jewellery_decoration', label: 'Jewellery/decoration' },
+        { id: 'household_object', label: 'Household object' },
+        { id: 'art_media', label: 'Art/media' },
+        { id: 'food_spice_kitchen', label: 'Food/spice/kitchen' },
+        { id: 'cosmetics_body', label: 'Cosmetics/body decoration' },
+        { id: 'medicine_health', label: 'Medicine/health' },
+        { id: 'flowers_plants', label: 'Flowers/plants' },
+        { id: 'animals_birds', label: 'Animals/birds' },
+        { id: 'water', label: 'Water/pond/river/sea' },
+        { id: 'sky_night', label: 'Sky/night' },
+        { id: 'land_soil', label: 'Land/soil' },
+        { id: 'summer', label: 'Summer' },
+        { id: 'monsoon_rain', label: 'Monsoon/rain' },
+        { id: 'winter', label: 'Winter' },
+        { id: 'time_of_day', label: 'Morning/evening/night' },
+        { id: 'no_memory', label: 'No memory' },
+        { id: 'not_sure', label: 'Not sure' },
+        { id: 'other', label: 'Other' }
+    ],
+
+    // Emotional response scale
+    emotional_responses: [
+        { id: 'very_positive', label: 'Very Positive' },
+        { id: 'positive', label: 'Positive' },
+        { id: 'neutral', label: 'Neutral' },
+        { id: 'negative', label: 'Negative' },
+        { id: 'very_negative', label: 'Very Negative' }
     ],
 
     // Face-to-Colour Task Trials
@@ -355,15 +494,6 @@ const Stimuli = {
         { id: 'practice_2', type: 'color', stimulus: 'Blue', correct_response: 'aft_blue' }
     ],
 
-    // Indian Chromatic Memory Task Stimuli (placeholder)
-    indian_memory_trials: [],
-
-    // Sample Face IDs for future use
-    face_ids: [
-        'face_001', 'face_002', 'face_003', 'face_004', 'face_005',
-        'face_006', 'face_007', 'face_008', 'face_009', 'face_010'
-    ],
-
     // Get AFT Reference Colors
     getAFTColors: function() {
         return this.aft_reference_colors;
@@ -382,6 +512,21 @@ const Stimuli = {
     // Get Facial Expressions
     getFacialExpressions: function() {
         return this.facial_expressions;
+    },
+
+    // Get Indian Memory Colors
+    getIndianMemoryColors: function() {
+        return this.indian_memory_colors;
+    },
+
+    // Get Memory Categories
+    getMemoryCategories: function() {
+        return this.memory_categories;
+    },
+
+    // Get Emotional Responses
+    getEmotionalResponses: function() {
+        return this.emotional_responses;
     },
 
     // Get Face-to-Colour Trials
@@ -422,6 +567,8 @@ const Stimuli = {
             emotion_options: this.emotion_options.length,
             face_task_colors: this.face_task_colors.length,
             facial_expressions: this.facial_expressions.length,
+            indian_memory_colors: this.indian_memory_colors.length,
+            memory_categories: this.memory_categories.length,
             face_to_color_trials: this.face_to_color_trials.length,
             color_to_face_trials: this.color_to_face_trials.length,
             practice_trials: this.practice_trials.length,
