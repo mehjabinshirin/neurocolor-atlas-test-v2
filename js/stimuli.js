@@ -1,6 +1,7 @@
 /* NeuroColor Atlas Test - Research Version 2
    Stimuli Module - Manages all task stimuli and data structures
-   Scientific Colour Task with CIELCh specifications */
+   Scientific Colour Task with CIELCh specifications
+   Face Task Stimuli with Emotions and Colours */
 
 const Stimuli = {
     // AFT Reference Colors - Autonomous Chromatic Field Test
@@ -8,17 +9,75 @@ const Stimuli = {
         { id: 'aft_red', name: 'Red', hex: '#FF0000', rgb: 'rgb(255, 0, 0)' },
         { id: 'aft_green', name: 'Green', hex: '#00FF00', rgb: 'rgb(0, 255, 0)' },
         { id: 'aft_blue', name: 'Blue', hex: '#0000FF', rgb: 'rgb(0, 0, 255)' },
-        { id: aft_yellow', name: 'Yellow', hex: '#FFFF00', rgb: 'rgb(255, 255, 0)' },
+        { id: 'aft_yellow', name: 'Yellow', hex: '#FFFF00', rgb: 'rgb(255, 255, 0)' },
         { id: 'aft_purple', name: 'Purple', hex: '#800080', rgb: 'rgb(128, 0, 128)' },
         { id: 'aft_cyan', name: 'Cyan', hex: '#00FFFF', rgb: 'rgb(0, 255, 255)' }
     ],
 
+    // Emotion Rating Options
+    emotion_options: [
+        { id: 'joy', label: 'Joy / Happy' },
+        { id: 'calm', label: 'Calm / Content' },
+        { id: 'excited', label: 'Excited / Interested' },
+        { id: 'love', label: 'Love / Warmth' },
+        { id: 'sad', label: 'Sad' },
+        { id: 'angry', label: 'Angry' },
+        { id: 'fearful', label: 'Fearful / Anxious' },
+        { id: 'disgusted', label: 'Disgusted' },
+        { id: 'surprised', label: 'Surprised' },
+        { id: 'bored', label: 'Bored / Tired' },
+        { id: 'no_emotion', label: 'No emotion' },
+        { id: 'other', label: 'Other' }
+    ],
+
+    // Face Task Colours (12 colours in 4x3 grid)
+    face_task_colors: [
+        { id: 'color_red', name: 'Red', hex: '#FF0000' },
+        { id: 'color_orange', name: 'Orange', hex: '#FFA500' },
+        { id: 'color_yellow', name: 'Yellow', hex: '#FFFF00' },
+        { id: 'color_green', name: 'Green', hex: '#00CC00' },
+        { id: 'color_teal', name: 'Teal', hex: '#008080' },
+        { id: 'color_blue', name: 'Blue', hex: '#0000FF' },
+        { id: 'color_purple', name: 'Purple', hex: '#800080' },
+        { id: 'color_pink', name: 'Pink', hex: '#FF69B4' },
+        { id: 'color_brown', name: 'Brown', hex: '#8B4513' },
+        { id: 'color_white', name: 'White', hex: '#FFFFFF' },
+        { id: 'color_grey', name: 'Grey', hex: '#808080' },
+        { id: 'color_black', name: 'Black', hex: '#000000' }
+    ],
+
+    // Facial Expression Categories
+    facial_expressions: [
+        { id: 'happiness', name: 'Happiness', emoji: '😊' },
+        { id: 'sadness', name: 'Sadness', emoji: '😢' },
+        { id: 'anger', name: 'Anger', emoji: '😠' },
+        { id: 'fear', name: 'Fear', emoji: '😨' },
+        { id: 'disgust', name: 'Disgust', emoji: '🤢' },
+        { id: 'neutral', name: 'Neutral', emoji: '😐' }
+    ],
+
+    // Face-to-Colour Task Trials
+    face_to_color_trials: [
+        { id: 'ftc_01', expression_id: 'happiness', expression_name: 'Happiness', trial_number: 1 },
+        { id: 'ftc_02', expression_id: 'sadness', expression_name: 'Sadness', trial_number: 2 },
+        { id: 'ftc_03', expression_id: 'anger', expression_name: 'Anger', trial_number: 3 },
+        { id: 'ftc_04', expression_id: 'fear', expression_name: 'Fear', trial_number: 4 },
+        { id: 'ftc_05', expression_id: 'disgust', expression_name: 'Disgust', trial_number: 5 },
+        { id: 'ftc_06', expression_id: 'neutral', expression_name: 'Neutral', trial_number: 6 }
+    ],
+
+    // Colour-to-Face Task Trials
+    color_to_face_trials: [
+        { id: 'ctf_01', color_id: 'color_red', color_name: 'Red', trial_number: 1 },
+        { id: 'ctf_02', color_id: 'color_orange', color_name: 'Orange', trial_number: 2 },
+        { id: 'ctf_03', color_id: 'color_yellow', color_name: 'Yellow', trial_number: 3 },
+        { id: 'ctf_04', color_id: 'color_green', color_name: 'Green', trial_number: 4 },
+        { id: 'ctf_05', color_id: 'color_blue', color_name: 'Blue', trial_number: 5 },
+        { id: 'ctf_06', color_id: 'color_purple', color_name: 'Purple', trial_number: 6 }
+    ],
+
     // Scientific Colour Task - 16 Trials
-    // CIELCh specifications: L*=60, C*=25 (low) and C*=45 (high), Hues: 30°, 90°, 150°, 210°, 270°, 330°
-    // Neutral grey baseline: L*=60, C*=0
-    
     scientific_color_full: [
-        // Trial 1: Neutral Grey Baseline (anchor)
         {
             id: 'SC00',
             trial_number: 1,
@@ -30,8 +89,6 @@ const Stimuli = {
             exposure_duration: 3,
             is_anchor: true
         },
-
-        // Chromatic Conditions - Low Chroma (C*=25)
         {
             id: 'SC01',
             trial_number: 2,
@@ -43,7 +100,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC02',
             trial_number: 3,
@@ -55,7 +111,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC03',
             trial_number: 4,
@@ -67,7 +122,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC04',
             trial_number: 5,
@@ -79,7 +133,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC05',
             trial_number: 6,
@@ -91,7 +144,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC06',
             trial_number: 7,
@@ -103,8 +155,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
-        // Neutral Grey Baseline - Repeat (anchor)
         {
             id: 'SC00',
             trial_number: 8,
@@ -117,8 +167,6 @@ const Stimuli = {
             is_anchor: true,
             note: 'MANDATORY BREAK AFTER THIS TRIAL'
         },
-
-        // Chromatic Conditions - High Chroma (C*=45)
         {
             id: 'SC07',
             trial_number: 9,
@@ -130,7 +178,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC08',
             trial_number: 10,
@@ -142,7 +189,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC09',
             trial_number: 11,
@@ -154,7 +200,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC10',
             trial_number: 12,
@@ -166,7 +211,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC11',
             trial_number: 13,
@@ -178,7 +222,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC12',
             trial_number: 14,
@@ -190,8 +233,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
-        // Neutral Grey Baseline - Repeat (anchor)
         {
             id: 'SC00',
             trial_number: 15,
@@ -203,8 +244,6 @@ const Stimuli = {
             exposure_duration: 3,
             is_anchor: true
         },
-
-        // Final Chromatic - Red-Yellow at Low Chroma (SC01 repeat)
         {
             id: 'SC01',
             trial_number: 16,
@@ -218,9 +257,8 @@ const Stimuli = {
         }
     ],
 
-    // Dementia-Friendly Short Version - 8 balanced trials
+    // Scientific Colour Task - Short Version (8 trials)
     scientific_color_short: [
-        // Trial 1: Neutral Grey Baseline
         {
             id: 'SC00',
             trial_number: 1,
@@ -232,8 +270,6 @@ const Stimuli = {
             exposure_duration: 3,
             is_anchor: true
         },
-
-        // Low Chroma - Representative hues
         {
             id: 'SC01',
             trial_number: 2,
@@ -245,7 +281,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC03',
             trial_number: 3,
@@ -257,7 +292,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC05',
             trial_number: 4,
@@ -269,8 +303,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
-        // High Chroma - Representative hues
         {
             id: 'SC07',
             trial_number: 5,
@@ -282,7 +314,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC09',
             trial_number: 6,
@@ -294,7 +325,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
         {
             id: 'SC11',
             trial_number: 7,
@@ -306,8 +336,6 @@ const Stimuli = {
             exposure_duration: 4,
             is_anchor: false
         },
-
-        // Neutral Grey Baseline - Final
         {
             id: 'SC00',
             trial_number: 8,
@@ -327,15 +355,6 @@ const Stimuli = {
         { id: 'practice_2', type: 'color', stimulus: 'Blue', correct_response: 'aft_blue' }
     ],
 
-    // Full-Screen Colour Task Stimuli (placeholder)
-    fullscreen_color_trials: [],
-
-    // Face-to-Colour Task Stimuli (placeholder)
-    face_to_color_trials: [],
-
-    // Colour-to-Face Task Stimuli (placeholder)
-    color_to_face_trials: [],
-
     // Indian Chromatic Memory Task Stimuli (placeholder)
     indian_memory_trials: [],
 
@@ -348,6 +367,31 @@ const Stimuli = {
     // Get AFT Reference Colors
     getAFTColors: function() {
         return this.aft_reference_colors;
+    },
+
+    // Get Emotion Options
+    getEmotionOptions: function() {
+        return this.emotion_options;
+    },
+
+    // Get Face Task Colours
+    getFaceTaskColors: function() {
+        return this.face_task_colors;
+    },
+
+    // Get Facial Expressions
+    getFacialExpressions: function() {
+        return this.facial_expressions;
+    },
+
+    // Get Face-to-Colour Trials
+    getFaceToColorTrials: function() {
+        return this.face_to_color_trials;
+    },
+
+    // Get Colour-to-Face Trials
+    getColorToFaceTrials: function() {
+        return this.color_to_face_trials;
     },
 
     // Get Practice Trials
@@ -370,18 +414,19 @@ const Stimuli = {
         return this.scientific_color_short;
     },
 
-    // Initialize trial arrays (to be expanded with actual stimuli)
+    // Initialize trial arrays
     initializeTrials: function() {
-        console.log('Stimuli initialized - Scientific Colour Task loaded');
+        console.log('Stimuli initialized - All tasks loaded');
         return {
             aft_reference: this.aft_reference_colors.length,
-            practice_trials: this.practice_trials.length,
-            scientific_color_full: this.scientific_color_full.length,
-            scientific_color_short: this.scientific_color_short.length,
-            fullscreen_color_trials: this.fullscreen_color_trials.length,
+            emotion_options: this.emotion_options.length,
+            face_task_colors: this.face_task_colors.length,
+            facial_expressions: this.facial_expressions.length,
             face_to_color_trials: this.face_to_color_trials.length,
             color_to_face_trials: this.color_to_face_trials.length,
-            indian_memory_trials: this.indian_memory_trials.length
+            practice_trials: this.practice_trials.length,
+            scientific_color_full: this.scientific_color_full.length,
+            scientific_color_short: this.scientific_color_short.length
         };
     }
 };
